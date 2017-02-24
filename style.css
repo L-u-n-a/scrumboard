@@ -1,0 +1,57 @@
+body {
+  background-color: red;
+}
+
+nav {
+  background-color: rgb(240, 120, 24);
+  font-family: 'Patrick Hand';
+  height: 3.3em;
+}
+
+nav h2 {
+  margin-top: 0;
+  margin-left: 1.5em;
+  padding-top: 0.1em;
+  font-style: italic;
+}
+
+.new-column {
+  margin: 0.5em;
+  margin-top: 2em;
+  display: table;
+  font-size: 1.1em;
+}
+
+.new-column input {
+  border: none;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  margin-right: 0.5em;
+}
+
+.new-column img {
+  border: 1px solid black;
+  box-shadow: 1px 1px 0px 0px;
+}
+
+.new-column img:hover {
+  box-shadow: 0px 0px 0px 0px;
+  transform: translateY(1px);
+}
+
+.column-name {
+  padding: 0.3em;
+  background-color: rgb(252, 235, 182);
+  color: black;
+}
+
+.column-name img {
+  float: right;
+  border: 1px solid black;
+  box-shadow: 1px 1px 0px 0px;
+}
+
+.column-name img:hover {
+  box-shadow: 0px 0px 0px 0px;
+  transform: translateY(1px);
+}
