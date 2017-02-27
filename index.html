@@ -2,6 +2,8 @@
 <html>
 
   <head>
+    <meta charset="utf-8"/>
+
     <title>Scrumboard</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -35,16 +37,17 @@
 
         <!--The columns are displayed here-->
         <div ng-repeat="column in columns">
-          <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2">
+          <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2 column">
 
             <!-- Button trigger modal -->
             <h3 class="column-name">{{column.title}}<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+</button></h3>
+            <!--Script needed to activate popup/modal-->
             <script type="text/javascript">
             $('#myModal').on('shown.bs.modal', function () {
               $('#myInput').focus()
             })
             </script>
-            <!-- Modal -->
+            <!-- popup/Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -53,15 +56,21 @@
                     <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                   </div>
                   <div class="modal-body">
-                    <input ng-model="newColumnItem.name" type="textfield" placeholder="Item name" />
-                    <textarea ng-model="newColumnItem.body" rows="5" cols="50" placeholder="Description issue" /></textarea>
+                    <input ng-model="newColumn.ItemName" type="textfield" placeholder="Item name" />
+                    <textarea ng-model="newColumn.ItemBody" rows="5" cols="50" placeholder="Description issue" /></textarea>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button ng-click="saveNewColumnItem(column)" type="button" class="btn btn-primary">Add</button>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!--Items in column-->
+            <div ng-repeat="task in column.tasks" class="item">
+              <h4>{{task.name}}</h4>
+              <p>{{task.body}}</p>
             </div>
           </div>
         </div>
