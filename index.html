@@ -37,7 +37,7 @@
 
         <!--The columns are displayed here-->
         <div ng-repeat="column in columns">
-          <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2 column">
+          <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2 column column" style="padding: 0;">
 
             <!-- Button trigger modal -->
             <h3 class="column-name">{{column.title}}<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+</button></h3>
@@ -68,10 +68,13 @@
             </div>
 
             <!--Items in column-->
-            <div ng-repeat="task in column.tasks" class="item">
-              <h4>{{task.name}}</h4>
-              <p>{{task.body}}</p>
+            <div ng-repeat="task in column.tasks" class="list-group item">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">{{task.name}}</h4>
+                <p class="list-group-item-text">{{task.body}}</p>
+              </a>
             </div>
+            
           </div>
         </div>
       </div>

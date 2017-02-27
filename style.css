@@ -40,7 +40,7 @@ nav h2 {
 }
 
 .column-name {
-  padding: 0.3em;
+  padding: 0.5em;
   background-color: rgb(252, 235, 182);
   color: black;
   margin: 0;
@@ -59,10 +59,10 @@ nav h2 {
 
 .column {
   background-color: rgb(153, 159, 147);
+  margin-right: 1em;
 }
 
 .item {
   padding: 0.5em;
   margin: 0.5em;
-  border: 1px solid black;
 }
