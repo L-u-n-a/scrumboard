@@ -43,6 +43,9 @@
             <h3 class="column-name">{{column.title}}<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{column.title}}">+</button></h3>
             <!--Script needed to activate popup/modal-->
             <script type="text/javascript">
+            var id;
+
+            // Hier word het #id voor de modal opgehaald.
             function setTitle() {
               var scope = angular.element($("body")).scope();
               var newvalue = scope.newColumn.name;
@@ -75,11 +78,13 @@
             </div>
 
             <!--Items in column-->
-            <div ng-repeat="task in column.tasks" class="list-group item">
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">{{task.name}}</h4>
-                <p class="list-group-item-text">{{task.body}}</p>
-              </a>
+            <div class="itemList" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <div ng-repeat="task in column.tasks" class="list-group">
+                <a href="#" class="list-group-item" draggable="true" ondragstart="drag(event)" id="{{task.name}}">
+                  <h4 class="list-group-item-heading">{{task.name}}</h4>
+                  <p class="list-group-item-text">{{task.body}}</p>
+                </a>
+              </div>
             </div>
 
           </div>
@@ -90,6 +95,7 @@
 
 
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="script/drag-and-drop.js"></script>
   </body>
 
 </html>
