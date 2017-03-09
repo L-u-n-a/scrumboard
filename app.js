@@ -22,11 +22,17 @@ module.controller('helloController', function ($scope) {
     if (!isEmpty($scope.newColumn.ItemName) && !isEmpty($scope.newColumn.ItemBody)) {
       column.tasks.push({
         name: $scope.newColumn.ItemName,
-        body: $scope.newColumn.ItemBody
+        body: $scope.newColumn.ItemBody,
+        status: null
       })
 
       $scope.newColumn.ItemName = $scope.newColumn.ItemBody = null
     }
+  }
+
+  // This is where the #id necessary to open the model is created.
+  $scope.setTitle = function () {
+    return '#' + $scope.newColumn.name
   }
 
   // This function will return true if a value is null or empty.
