@@ -57,6 +57,32 @@ nav h2 {
   transform: translateY(1px);
 }
 
+.select-sprint {
+  background-color: white;
+  border-radius: 2px;
+  padding: 5px;
+  border: 1px solid black;
+  margin-left: 2em;
+  min-width: 10em;
+}
+
+.new-sprint {
+  margin-left: 2em;
+}
+
+.new-item-sprint {
+  background-color: white;
+  border-radius: 2px;
+  padding: 5px;
+  border: 1px solid black;
+  margin-left: 0.5em;
+  min-width: 10em;
+}
+
+.item-warning {
+  color: red;
+}
+
 .column {
   margin-right: 1em;
 }
