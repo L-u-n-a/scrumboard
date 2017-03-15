@@ -1,0 +1,68 @@
+</div>
+ <!--SCRUM COLUMNS-->
+ <div class="row">
+   <div class="col-xs-12 col-ms-12 col-md-12 col-lg-12">
+     <!--Create a new column and/or sprint. Select sprint.-->
+     <div class="new-column">
+       <input ng-model="newColumn.name" type="textfield" placeholder="New Column name"/>
+       <img ng-click="saveNewColumn()" src="images/ic_add_black_24dp_1x.png">
+
+       <input class="new-sprint" ng-model="newSprint.name" type="textfield" placeholder="New Sprint name"/>
+       <img ng-click="saveNewSprint()" src="images/ic_add_black_24dp_1x.png">
+       <select name="selected" class="select-sprint" ng-model="data.selected">
+         <option ng-repeat="sprint in sprints" value="{{sprint.name}}">{{sprint.name}}</option>
+       </select>
+     </div>
+
+
+     <!--The columns are displayed here-->
+     <div ng-repeat="column in columns">
+       <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2 column column" style="padding: 0;">
+
+         <!-- Button trigger modal -->
+         <h3 class="column-name">{{column.title}}<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{column.title}}">+</button></h3>
+         <!--Script needed to activate popup/modal-->
+         <script type="text/javascript">
+         $(setTitle()).on('shown.bs.modal', function () {
+           $('#myInput').focus()
+         })
+         </script>
+         <!-- popup/Modal -->
+         <div class="modal fade" id="{{column.title}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+               </div>
+               <div class="modal-body">
+                 <input ng-model="newColumn.ItemName" type="textfield" placeholder="Item name" />
+                 <textarea ng-model="newColumn.ItemBody" rows="5" cols="50" placeholder="Description issue" /></textarea><br/>
+                 <label>Sprint:</label><select ng-model="newColumn.ItemSprint" class="new-item-sprint">
+                   <option ng-repeat="sprint in sprints" value="{{sprint.name}}">{{sprint.name}}</option>
+                 </select>
+               </div>
+               <div class="modal-footer">
+                 <!--Warning label, create and select sprint before creating column items!-->
+                 <label class="item-warning">{{warning}}</label>
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 <button ng-click="saveNewColumnItem(column)" type="button" class="btn btn-primary">Add</button>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <!--Items in column-->
+         <div class="itemList" ondrop="drop(event)" ondragover="allowDrop(event)">
+           <div ng-repeat="task in column.tasks | filter:data.selected" class="list-group">
+             <a href="#" class="list-group-item" draggable="true" ondragstart="drag(event)" id="{{task.name}}">
+               <h4 class="list-group-item-heading">{{task.name}}</h4>
+               <p class="list-group-item-text">{{task.body}}</p>
+             </a>
+           </div>
+         </div>
+
+       </div>
+     </div>
+   </div>
+ </div>
