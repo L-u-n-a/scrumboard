@@ -6,8 +6,9 @@ angular
                 templateUrl: 'index.html',
                 controller: 'controller/scrumboard-controller.js'
             })
-            .when('/view/scrumboard', {
-                templateUrl: '/view/scrumboard.html'
+            .when('/scrumboard', {
+                templateUrl: '/view/scrumboard.html',
+                controller: 'helloController'
             })
             .otherwise({redirectTo: '/'});
     }]);
