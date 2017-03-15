@@ -1,5 +1,5 @@
 /* global angular */
-var module = angular.module('helloApp', [])
+var module = angular.module('scrumboard-controller', [])
 
 module.controller('helloController', function ($scope) {
   $scope.columns = []

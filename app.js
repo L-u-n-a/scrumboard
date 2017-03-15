@@ -3,12 +3,12 @@ angular
     .config(['$routeProvider', function($routeProvider){
         $routeProvider
             .when('/', {
-                templateUrl: 'index.html',
-                controller: 'controller/scrumboard-controller.js'
+                controller: 'scrumboard-controller',
+                templateUrl: '/view/scrumboard.html'
             })
             .when('/scrumboard', {
-                templateUrl: '/view/scrumboard.html',
-                controller: 'helloController'
+                templateUrl: '#/view/scrumboard.html',
+                controller: 'scrumboard-controller'
             })
             .otherwise({redirectTo: '/'});
     }]);
