@@ -1,7 +1,7 @@
 /* global angular */
 var module = angular.module('scrumboard-controller', [])
 
-module.controller('helloController', function ($scope) {
+module.controller('scrumboard-controller', function ($scope) {
   $scope.columns = []
   $scope.sprints = []
   $scope.warning = ''
