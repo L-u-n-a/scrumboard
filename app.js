@@ -14,5 +14,13 @@ app.config(function ($routeProvider) {
       templateUrl: '/view/scrumboard.html',
       controller: 'scrumboardController'
     })
+    .when('/login', {
+      templateUrl: '/view/login.html',
+      controller: 'loginController'
+    })
+    .when('/register', {
+      templateUrl: '/view/register.html',
+      controller: 'registerController'
+    })
     .otherwise({redirectTo: '/'})
 })
