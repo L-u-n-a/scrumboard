@@ -1,18 +1,18 @@
 /* global angular */
-angular
-    .module('scrumboard-app', ['ngRoute'])
-    .config(['$routeProvider', function ($routeProvider) {
-      $routeProvider
-        .when('/', {
-          templateUrl: '/view/home.html',
-          controller: ['$scope', function ($scope) {
-            $scope.page = 'home'
-          }]
-        })
+var app = angular.module('scrumboard-app', ['ngRoute'])
 
-        .when('/scrumboard', {
-          controller: 'scrumboard-controller',
-          templateUrl: '/view/scrumboard.html'
-        })
-        .otherwise({redirectTo: '/'})
-    }])
+app.config(function ($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: '/view/home.html',
+      controller: ['$scope', function ($scope) {
+        $scope.page = 'home'
+      }]
+    })
+
+    .when('/scrumboard', {
+      templateUrl: '/view/scrumboard.html',
+      controller: 'scrumboardController'
+    })
+    .otherwise({redirectTo: '/'})
+})

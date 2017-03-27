@@ -1,7 +1,5 @@
-/* global angular */
-var module = angular.module('scrumboard-controller', [])
-
-module.controller('scrumboard-controller', function ($scope) {
+/* global app */
+app.controller('scrumboardController', function ($scope) {
   $scope.columns = []
   $scope.sprints = []
   $scope.warning = ''
