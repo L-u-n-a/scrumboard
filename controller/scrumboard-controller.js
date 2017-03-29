@@ -1,18 +1,22 @@
 /* global app */
-app.controller('scrumboardController', function ($scope, $cookies) {
+app.controller('scrumboardController', function ($scope, $cookies, columnFactory, taskFactory) {
   $scope.username = $cookies.get('username')
-  $scope.columns = []
+  $scope.columns = columnFactory.getColumnByProject(1)
   $scope.sprints = []
   $scope.warning = ''
+  $scope.newTask = {}
+  $scope.newColumn = {}
+  $scope.newTask.ItemName = ''
+  $scope.newTask.ItenBody = ''
+  $scope.newTask.ItemSprint = ''
+  var projectID = $cookies.get('projectID')
 
   // This is where column information is stored. e.g: ToDo, In Progress, etc.
   $scope.saveNewColumn = function () {
     if (!isEmpty($scope.newColumn.name)) {
-      $scope.columns.push({
-        title: $scope.newColumn.name,
-        // This array will be filled with the tasks in this column.
-        tasks: []
-      })
+      columnFactory.createColumn(projectID, $scope.newColumn.name)
+      $scope.columns = columnFactory.getColumnByProject(projectID)
+      console.log($scope.columns)
 
       $scope.newColumn = {}
     }
@@ -20,15 +24,12 @@ app.controller('scrumboardController', function ($scope, $cookies) {
 
   // Save a new item to a column.
   $scope.saveNewColumnItem = function (column) {
-    if (!isEmpty($scope.newColumn.ItemName) && !isEmpty($scope.newColumn.ItemBody) && !isEmpty($scope.newColumn.ItemSprint)) {
-      column.tasks.push({
-        name: $scope.newColumn.ItemName,
-        body: $scope.newColumn.ItemBody,
-        sprint: $scope.newColumn.ItemSprint
-      })
+    if (!isEmpty($scope.newTask.ItemName) && !isEmpty($scope.newTask.ItemBody) && !isEmpty($scope.newTask.ItemSprint)) {
+      taskFactory.createTask(column.id, $scope.newTask.ItemName, $scope.newTask.ItemBody, $scope.newTask.ItemSprint)
+      column.tasks = taskFactory.getTaskByColumn(column.id)
       $scope.warning = ''
 
-      $scope.newColumn.ItemName = $scope.newColumn.ItemBody = null
+      $scope.newTask.ItemName = $scope.newTask.ItemBody = null
     } else {
       $scope.warning = 'Please fill all fields!'
     }
@@ -63,7 +64,7 @@ app.controller('scrumboardController', function ($scope, $cookies) {
 
   // This is where the #id necessary to open the model is created.
   $scope.setTitle = function () {
-    return '#' + $scope.newColumn.name
+    return '#' + $scope.name
   }
 
   // This function will return true if a value is null or empty.
