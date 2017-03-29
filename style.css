@@ -109,6 +109,10 @@ nav h2 {
   color: red;
 }
 
+.deleteItem {
+  float: right;
+}
+
 .column {
   margin-right: 1em;
 }
