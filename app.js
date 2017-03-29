@@ -1,5 +1,5 @@
 /* global angular */
-var app = angular.module('scrumboard-app', ['ngRoute'])
+var app = angular.module('scrumboard-app', ['ngRoute', 'ngCookies'])
 
 app.config(function ($routeProvider) {
   $routeProvider

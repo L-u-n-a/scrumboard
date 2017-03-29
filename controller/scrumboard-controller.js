@@ -1,5 +1,6 @@
 /* global app */
-app.controller('scrumboardController', function ($scope) {
+app.controller('scrumboardController', function ($scope, $cookies) {
+  $scope.username = $cookies.get('username')
   $scope.columns = []
   $scope.sprints = []
   $scope.warning = ''
