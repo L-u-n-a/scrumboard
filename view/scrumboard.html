@@ -53,8 +53,8 @@
          <!--Items in column-->
          <div class="itemList" ondrop="drop(event)" ondragover="allowDrop(event)">
            <div ng-repeat="task in column.tasks | filter:data.selected" class="list-group">
-             <a href="#" class="list-group-item" draggable="true" ondragstart="drag(event)" id="{{task.name}}">
-               <h4 class="list-group-item-heading">{{task.name}}</h4>
+             <a class="list-group-item" draggable="true" ondragstart="drag(event)" id="{{task.name}}">
+               <h4 class="list-group-item-heading">{{task.name}} <img ng-click="deleteItem(column, task)" src="images/ic_add_black_24dp_1x.png"></h4>
                <p class="list-group-item-text">{{task.body}}</p>
              </a>
            </div>

@@ -34,6 +34,23 @@ app.controller('scrumboardController', function ($scope, $cookies) {
     }
   }
 
+  /* Find the selected task by looping through the list of tasks of every column.
+  When having found the correct location of the item inside the list, splice it. */
+  $scope.deleteItem = function (column, task) {
+    var deleteIndex = -1
+    column.tasks.forEach(function (e, i) {
+      if (e.name === task.name) {
+        console.log(task.name)
+        deleteIndex = i
+        column.tasks.splice(deleteIndex, 1)
+      }
+    })
+  }
+
+  $scope.editItem = function (column, item) {
+
+  }
+
   $scope.saveNewSprint = function () {
     if (!isEmpty($scope.newSprint.name)) {
       $scope.sprints.push({
