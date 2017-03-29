@@ -1,17 +1,32 @@
 /* global app */
 app.factory('projectFactory', function () {
-  var projects = []
+  var projects = [
+    {name: 'testProject', participants: ['jan']}
+  ]
 
   function getAllProjects () {
     return projects
   }
 
-  function createProject (pname) {
-    projects.push({id: projects.length + 1, name: pname})
+  function getProjectsByUser (username) {
+    var userProjects = []
+    projects.forEach(function (e) {
+      for (var i = 0; i < e.participants.length; i++) {
+        if (e.participants[i] === username) {
+          userProjects.push(e)
+        }
+      }
+    })
+    return userProjects
+  }
+
+  function createProject (pname, pParticipants) {
+    projects.push({id: projects.length + 1, name: pname, participants: pParticipants})
   }
 
   return {
     getAllProjects: getAllProjects,
-    createProject: createProject
+    createProject: createProject,
+    getProjectsByUser: getProjectsByUser
   }
 })

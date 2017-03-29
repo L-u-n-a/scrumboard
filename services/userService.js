@@ -19,4 +19,16 @@ app.service('userService', function () {
   this.createUser = function (name, pass) {
     users.push({username: name, password: pass})
   }
+
+  this.getAllUsers = function () {
+    return users
+  }
+
+  this.getUserNames = function () {
+    var usernames = []
+    users.forEach(function (e) {
+      usernames.push(e.username)
+    })
+    return usernames
+  }
 })

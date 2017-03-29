@@ -2,22 +2,6 @@
 app.controller('loginController', function ($scope, $location, $cookies, userService) {
   $scope.username = ''
   $scope.password = ''
-  // $scope.users = [
-  //   { username: 'frank', password: 'test' },
-  //   { username: 'Emilia', password: 'test' }
-  // ]
-  $scope.hello = 'Hello!'
-
-  // $scope.checkPassword = function () {
-  //   $scope.users.forEach(function (e, i) {
-  //     console.log(e.username)
-  //     if ($scope.username === e.username && $scope.password === e.password) {
-  //       console.log('correct!')
-  //       userCookie($scope.username)
-  //       $location.path('/scrumboard')
-  //     }
-  //   })
-  // }
 
   $scope.checkPassword = function () {
     if (userService.login($scope.username, $scope.password)) {
