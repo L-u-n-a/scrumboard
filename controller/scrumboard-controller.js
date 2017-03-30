@@ -16,7 +16,6 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
     if (!isEmpty($scope.newColumn.name)) {
       columnFactory.createColumn(projectID, $scope.newColumn.name)
       $scope.columns = columnFactory.getColumnByProject(projectID)
-      console.log($scope.columns)
 
       $scope.newColumn = {}
     }
