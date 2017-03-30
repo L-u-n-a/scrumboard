@@ -4,13 +4,10 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
   $scope.username = $cookies.get('username')
   var projectID = $cookies.get('projectID')
   $scope.columns = columnFactory.getColumnByProject(projectID)
-
   // This attribute is filled when not all input fields are filled in when creating a task.
   $scope.warning = ''
-
   $scope.sprints = []
   $scope.newColumn = {}
-
   // The newTask object with all of it's attributes is initialised.
   $scope.newTask = {}
   $scope.newTask.ItemName = ''
@@ -59,6 +56,8 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
     })
   }
 
+  /* TO BE IMPLEMENTED---
+    Het moet mogelijk zijn tickets aan te passen. */
   $scope.editItem = function (column, item) {
 
   }
