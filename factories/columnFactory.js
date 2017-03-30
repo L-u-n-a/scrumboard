@@ -20,6 +20,8 @@ app.factory('columnFactory', function () {
 
   function createColumn (projectId, columnName) {
     columns.push({id: columns.length + 1, projectID: projectId, name: columnName})
+    /* global localStorage */
+    localStorage.setItem('columns', JSON.stringify(columns))
   }
 
   return {

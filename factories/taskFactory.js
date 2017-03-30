@@ -22,6 +22,8 @@ app.factory('taskFactory', function () {
   function createTask (taskColumnID, taskName, taskBody, taskSprint) {
     tasks.push({id: tasks.length + 1, columnID: taskColumnID, name: taskName, body: taskBody, sprint: taskSprint})
     console.log(tasks)
+    /* global localStorage */
+    localStorage.setItem('tasks', JSON.stringify(tasks))
   }
 
   return {

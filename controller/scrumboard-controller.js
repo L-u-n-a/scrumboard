@@ -1,7 +1,8 @@
 /* global app */
 app.controller('scrumboardController', function ($scope, $cookies, columnFactory, taskFactory) {
   $scope.username = $cookies.get('username')
-  $scope.columns = columnFactory.getColumnByProject(1)
+  var projectID = $cookies.get('projectID')
+  $scope.columns = columnFactory.getColumnByProject(projectID)
   $scope.sprints = []
   $scope.warning = ''
   $scope.newTask = {}
@@ -9,7 +10,6 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
   $scope.newTask.ItemName = ''
   $scope.newTask.ItenBody = ''
   $scope.newTask.ItemSprint = ''
-  var projectID = $cookies.get('projectID')
 
   // This is where column information is stored. e.g: ToDo, In Progress, etc.
   $scope.saveNewColumn = function () {
