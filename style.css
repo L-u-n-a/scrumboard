@@ -74,7 +74,6 @@ nav h2 {
 
 .column-name button {
   float: right;
-  border: 1px solid black;
   box-shadow: 1px 1px 0px 0px;
 }
 
@@ -114,12 +113,17 @@ nav h2 {
 }
 
 .column {
-  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 .itemList {
   min-height: 200px;
-    background-color: rgb(153, 159, 147);
+  border: 1px solid black;
+  border-radius: 5px;
+  border-top: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .list-item {
