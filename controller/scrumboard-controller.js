@@ -1,17 +1,26 @@
 /* global app */
 app.controller('scrumboardController', function ($scope, $cookies, columnFactory, taskFactory) {
+  // The cookie data is neccecary in order to retrieve all of the selected projects information.
   $scope.username = $cookies.get('username')
   var projectID = $cookies.get('projectID')
   $scope.columns = columnFactory.getColumnByProject(projectID)
-  $scope.sprints = []
+
+  // This attribute is filled when not all input fields are filled in when creating a task.
   $scope.warning = ''
-  $scope.newTask = {}
+
+  $scope.sprints = []
   $scope.newColumn = {}
+
+  // The newTask object with all of it's attributes is initialised.
+  $scope.newTask = {}
   $scope.newTask.ItemName = ''
   $scope.newTask.ItenBody = ''
   $scope.newTask.ItemSprint = ''
 
-  // This is where column information is stored. e.g: ToDo, In Progress, etc.
+  /* The columnFactory is called in order to create a new column.
+     After the column has been created, the $scope.clumns list is filled again,
+     so it includes the new list. newColumn model is made empty so the textfield
+     is empty aswell. */
   $scope.saveNewColumn = function () {
     if (!isEmpty($scope.newColumn.name)) {
       columnFactory.createColumn(projectID, $scope.newColumn.name)
@@ -21,7 +30,10 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
     }
   }
 
-  // Save a new item to a column.
+  /* A task is created using the ticketFactory.
+    If not all fields are filled, a warning message is displayed.
+    After creating the new task, the column.tasks list is refreshed.
+  */
   $scope.saveNewColumnItem = function (column) {
     if (!isEmpty($scope.newTask.ItemName) && !isEmpty($scope.newTask.ItemBody) && !isEmpty($scope.newTask.ItemSprint)) {
       taskFactory.createTask(column.id, $scope.newTask.ItemName, $scope.newTask.ItemBody, $scope.newTask.ItemSprint)
@@ -51,6 +63,7 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
 
   }
 
+  // Every task is part of a sprint.
   $scope.saveNewSprint = function () {
     if (!isEmpty($scope.newSprint.name)) {
       $scope.sprints.push({
