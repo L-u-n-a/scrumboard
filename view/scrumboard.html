@@ -7,10 +7,8 @@
        <img id="newColumnButton" ng-click="saveNewColumn()" src="images/ic_add_black_24dp_1x.png">
 
        <input class="new-sprint" ng-model="newSprint.name" type="textfield" placeholder="New Sprint name"/>
-       <img ng-click="saveNewSprint()" src="images/ic_add_black_24dp_1x.png">
-       <select name="selected" class="select-sprint" ng-model="data.selected">
-         <option ng-repeat="sprint in sprints" value="{{sprint.name}}">{{sprint.name}}</option>
-       </select>
+       <img id="newSprintButton" ng-click="saveNewSprint()" src="images/ic_add_black_24dp_1x.png">
+       <select name="selected" class="select-sprint" ng-model="data.selected" ng-options="sprint for sprint in sprints"></select>
      </div>
 
      <!--The columns are displayed here-->
@@ -36,15 +34,13 @@
                <div class="modal-body">
                  <input ng-model="newTask.ItemName" type="textfield" placeholder="Item name" />
                  <textarea ng-model="newTask.ItemBody" rows="5" cols="50" placeholder="Description issue" /></textarea><br/>
-                 <label>Sprint:</label><select ng-model="newTask.ItemSprint" class="new-item-sprint">
-                   <option ng-repeat="sprint in sprints" value="{{sprint.name}}">{{sprint.name}}</option>
-                 </select>
+                 <label>Sprint:</label><select ng-model="newTask.ItemSprint" ng-options="sprint for sprint in sprints" class="new-item-sprint"></select>
                </div>
                <div class="modal-footer">
                  <!--Warning label, create and select sprint before creating column items!-->
                  <label class="item-warning">{{warning}}</label>
                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                 <button ng-click="saveNewColumnItem(column)" type="button" class="btn btn-primary">Add</button>
+                 <button id="createNewTask" ng-click="saveNewColumnItem(column)" type="button" class="btn btn-primary">Add</button>
                </div>
              </div>
            </div>

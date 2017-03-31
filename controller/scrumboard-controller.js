@@ -65,9 +65,9 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
   // Every task is part of a sprint.
   $scope.saveNewSprint = function () {
     if (!isEmpty($scope.newSprint.name)) {
-      $scope.sprints.push({
-        name: $scope.newSprint.name
-      })
+      $scope.sprints.push(
+        $scope.newSprint.name
+      )
 
       $scope.newSprint.name = null
     }
