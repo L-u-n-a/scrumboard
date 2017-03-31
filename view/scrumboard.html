@@ -3,8 +3,8 @@
    <div class="col-xs-12 col-ms-12 col-md-12 col-lg-12">
      <!--Create a new column and/or sprint. Select sprint.-->
      <div class="new-column">
-       <input ng-model="newColumn.name" type="textfield" placeholder="New Column name"/>
-       <img ng-click="saveNewColumn()" src="images/ic_add_black_24dp_1x.png">
+       <input id="newColumnInput" ng-model="newColumn.name" type="textfield" placeholder="New Column name"/>
+       <img id="newColumnButton" ng-click="saveNewColumn()" src="images/ic_add_black_24dp_1x.png">
 
        <input class="new-sprint" ng-model="newSprint.name" type="textfield" placeholder="New Sprint name"/>
        <img ng-click="saveNewSprint()" src="images/ic_add_black_24dp_1x.png">
@@ -18,7 +18,7 @@
        <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2 column column" style="padding: 0;">
 
          <!-- Button trigger modal -->
-         <h3 class="column-name">{{column.name}}<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{column.name}}">+</button></h3>
+         <h3 class="column-name">{{column.name}}<button id="taskModelButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{column.name}}">+</button></h3>
          <!--Script needed to activate popup/modal-->
          <script type="text/javascript">
          $(setTitle()).on('shown.bs.modal', function () {
