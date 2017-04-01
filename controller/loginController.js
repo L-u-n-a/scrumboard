@@ -7,7 +7,7 @@ app.controller('loginController', function ($scope, $location, $cookies, userSer
     if (userService.login($scope.username, $scope.password)) {
       console.log('correct!')
       userCookie($scope.username)
-      $location.path('/scrumboard')
+      $location.path('/home')
     }
   }
 

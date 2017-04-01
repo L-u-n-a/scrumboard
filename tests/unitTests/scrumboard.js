@@ -1,33 +1,45 @@
-describe('Controller: scrumboard controller', function () {
-  var filter
+/* global describe */
+describe('Controller: scrumboardController', function () {
+    // load the controller's module
+    /* global beforeEach */
+  //beforeEach(module('scrumboard-app'))
+  var scrumboardController,
+    scope
 
-  beforeEach(function () {
-    //Word voor elke test uitgevoerd.
-    module('testApp.filters')
+   // Initialize the controller and a mock scope
+   /* global inject */
+   beforeEach(inject(function ($rootScope, $controller, _$location_) {
+         $location = _$location_;
+         scope = $rootScope.$new();
 
-    inject(function ($filter) {
-      filter = $filter('puntjesFilter')
-    })
+         createController = function() {
+             return $controller('scrumboardController', {
+                 '$scope': scope
+             });
+         };
+     }));
+
+  /* global it */
+  it('should check to see if a "#" is added to a title', function () {
+    var input = 'test'
+    var output = '#test'
+    scrumboardController = createController();
+    console.log(scrumboardController)
+
+    /* global expect */
+    expect(scrumboardController.setTitle(input)).toBe(output)
   })
-  /*global it*/
-  it('should add dots while string length is less then 20', function () {
-    var input = 'Hello World!' // 12 chars
-    var output = 'Hello World!........'
+})
 
-    expect(filter(input)).toBe(output)
+/* global describe */
+describe('Test the testing', function () {
+  /* global it */
+  it('Should execute with succes', function () {
+    /* global expect */
+    expect(true).toBeTruthy()
   })
 
-  it('should return string wen string is longer then 20 characcters', function () {
-    var input = 'Goedemiddag World!!!' // 20 chars
-    var output = 'Goedemiddag World!!!'
-
-    expect(input).toBe(output)
-  })
-
-  it('should return 20 dots when the string is empty', function () {
-    var input // empty string
-    var output = '....................' // 20 characters
-
-    expect(filter(input)).toBe(output)
+  it('Should execute with failure', function () {
+    expect(true).not.toBe(false)
   })
 })

@@ -4,7 +4,6 @@
       <h4>Create new project</h4>
       <form ng-controller"homeController" ng-submit="saveNewProject()">
         <input type="text" name="name" ng-model="newProject.name" required />
-        <select ng-model="newProject.group" ng-options="user for user in users"></select>
         <br />
         <button type="submit">Create</button>
       </form>

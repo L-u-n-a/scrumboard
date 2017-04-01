@@ -2,7 +2,7 @@
 app.service('userService', function () {
   var users = [
       {username: 'jan', password: 'test'},
-      {username: 'jan', password: 'jan'},
+      {username: 'gijs', password: 'gijs'},
       {username: 'luna', password: 'luna'}
   ]
 

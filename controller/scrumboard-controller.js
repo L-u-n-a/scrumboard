@@ -1,8 +1,12 @@
-/* global app */
-app.controller('scrumboardController', function ($scope, $cookies, columnFactory, taskFactory) {
+/* global angular */
+angular.module('scrumboard-app').controller('scrumboardController', function ($scope, $cookies, columnFactory, taskFactory, projectFactory, userService) {
   // The cookie data is neccecary in order to retrieve all of the selected projects information.
   $scope.username = $cookies.get('username')
   var projectID = $cookies.get('projectID')
+  // Set data that is needed to make the filter for adding more project memebers work.
+  $scope.project = projectFactory.getProjectById(projectID)
+  $scope.projectParticipants = setParticipants($scope.project)
+  // Retrieve the columns belonging to this project.
   $scope.columns = columnFactory.getColumnByProject(projectID)
   // This attribute is filled when not all input fields are filled in when creating a task.
   $scope.warning = ''
@@ -73,6 +77,11 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
     }
   }
 
+  // Add a user to the project.
+  $scope.addProjectMember = function (username) {
+    $scope.project.participants.push(username)
+  }
+
   // This is where the #id necessary to open the model is created.
   $scope.setTitle = function () {
     return '#' + $scope.name
@@ -81,5 +90,13 @@ app.controller('scrumboardController', function ($scope, $cookies, columnFactory
   // This function will return true if a value is null or empty.
   function isEmpty (value) {
     return (value == null || value.length === 0)
+  }
+
+  function setParticipants (project) {
+    var list = []
+    for (var i = 0; i < $scope.project.participants.length; i++) {
+      list.push(project.participants[i])
+    }
+    return list
   }
 })

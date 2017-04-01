@@ -8,6 +8,16 @@ app.factory('projectFactory', function () {
     return projects
   }
 
+  function getProjectById (id) {
+    var project = {}
+    projects.forEach(function (e) {
+      if (e.id == id) {
+        project = e
+      }
+    })
+    return project
+  }
+
   function getProjectsByUser (username) {
     var userProjects = []
     projects.forEach(function (e) {
@@ -30,6 +40,7 @@ app.factory('projectFactory', function () {
   return {
     getAllProjects: getAllProjects,
     createProject: createProject,
-    getProjectsByUser: getProjectsByUser
+    getProjectsByUser: getProjectsByUser,
+    getProjectById: getProjectById
   }
 })
