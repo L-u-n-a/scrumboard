@@ -17,6 +17,7 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   $scope.newTask.ItemName = ''
   $scope.newTask.ItenBody = ''
   $scope.newTask.ItemSprint = ''
+  $scope.test = 'hello'
 
   /* The columnFactory is called in order to create a new column.
      After the column has been created, the $scope.clumns list is filled again,

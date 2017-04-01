@@ -1,27 +1,28 @@
 describe('E2E: Test the scrumboard page.', function () {
 
   beforeEach(function () {
-    browser.get('http://localhost:8080/#/scrumboard')
-  })
-
-  it("Should create a new column", function () {
-    element(by.model('newColumn.name')).sendKeys('Test')
-    element(by.id('newColumnButton')).click()
-
-    expect(element(by.css('.column-name')).getText()).toContain("Test")
+    browser.get('http://localhost:8080/#login')
   })
 
   it('Should create a column, then add a ticket to that column', function () {
+    // login
+    element(by.model('username')).sendKeys('jan')
+    element(by.model('password')).sendKeys('test')
+    element(by.id('login')).click()
+    // click on project
+    element(by.id('testProject')).click()
     // Create a new column
     element(by.model('newColumn.name')).sendKeys('Test')
-    element(by.id('newColumnButton')).click()
-
+      browser.sleep(1000)
+    element(by.id('newColumn')).click()
+    browser.sleep(1000)
     // Create a new sprint the task will be a part of.
     element(by.model('newSprint.name')).sendKeys('sprint 1')
+    browser.sleep(1000)
     element(by.id('newSprintButton')).click()
-
+    browser.sleep(1000)
     // Open the overlay for creating a new task.
-    element(by.id('taskModelButton')).click()
+    element(by.id('das')).click()
     browser.sleep(1000)
     // Enter all of the neccecary information needed for creating a new task.
     element(by.model('newTask.ItemName')).sendKeys('test task')

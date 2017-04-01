@@ -5,13 +5,13 @@
       <form ng-controller"homeController" ng-submit="saveNewProject()">
         <input type="text" name="name" ng-model="newProject.name" required />
         <br />
-        <button type="submit">Create</button>
+        <button id="createProject" type="submit">Create</button>
       </form>
     </div>
     <div class="col-xs-4 col-ms-4 col-md-4 col-lg-4">
       <h4>Active Projects</h4>
         <div ng-repeat="project in projects">
-          <p><a href="#scrumboard" ng-click="setProjectID(project.id)">{{project.name}}</a></p>
+          <p><a id="{{project.name}}" href="#scrumboard" ng-click="setProjectID(project.id)">{{project.name}}</a></p>
         </div>
 
     </div>

@@ -1,33 +1,27 @@
-/* global describe */
+'use strict';
+
 describe('Controller: scrumboardController', function () {
-    // load the controller's module
-    /* global beforeEach */
-  //beforeEach(module('scrumboard-app'))
+
+  beforeEach(module('scrumboard-app'));
+
   var scrumboardController,
-    scope
+    scope;
 
-   // Initialize the controller and a mock scope
-   /* global inject */
-   beforeEach(inject(function ($rootScope, $controller, _$location_) {
-         $location = _$location_;
-         scope = $rootScope.$new();
-
-         createController = function() {
-             return $controller('scrumboardController', {
-                 '$scope': scope
-             });
-         };
-     }));
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
+    scrumboardController = $controller('scrumboardController', {
+      $scope: scope
+    })
+  }))
 
   /* global it */
   it('should check to see if a "#" is added to a title', function () {
     var input = 'test'
     var output = '#test'
-    scrumboardController = createController();
-    console.log(scrumboardController)
 
     /* global expect */
-    expect(scrumboardController.setTitle(input)).toBe(output)
+    console.log(scope.test)
+    expect(scrumboardController.test).toBe('hello')
   })
 })
 
