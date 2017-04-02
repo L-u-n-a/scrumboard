@@ -141,11 +141,11 @@ nav h2 {
 
 .column {
   margin-left: 1em;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 .itemList {
-  min-height: 200px;
+  min-height: 300px;
   background-color: #2A363B;
   border: 1px solid black;
   border-radius: 2px;
