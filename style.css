@@ -12,6 +12,14 @@ nav a:hover {
   text-decoration: none;
 }
 
+nav a:active {
+  text-decoration: none;
+}
+
+nav a:visited {
+  text-decoration: none;
+}
+
 nav h2 {
   margin-top: 0;
   margin-left: 1.5em;
