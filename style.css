@@ -72,14 +72,17 @@ nav h2 {
   margin: 0;
 }
 
-.column-name button {
-  float: right;
-  box-shadow: 1px 1px 0px 0px;
-}
-
 .column-name img:hover {
   box-shadow: 0px 0px 0px 0px;
   transform: translateY(1px);
+}
+
+.sprintLabel {
+  margin-left: 2em;
+}
+
+.participantLabel {
+  margin-left: 2em;
 }
 
 .select-sprint {
@@ -87,7 +90,7 @@ nav h2 {
   border-radius: 2px;
   padding: 5px;
   border: 1px solid black;
-  margin-left: 2em;
+  margin-left: 0.5em;
   min-width: 10em;
 }
 
@@ -106,6 +109,18 @@ nav h2 {
 
 .item-warning {
   color: red;
+}
+
+.newTask {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    float: right;
 }
 
 .deleteItem {
@@ -176,6 +191,40 @@ img.avatar {
 
 .container {
     padding: 16px;
+}
+
+.newParticipant {
+  margin-left: 1em;
+}
+
+.newProject {
+  margin-top: 1em;
+}
+
+.activeProjects {
+  margin-top: 1em;
+  border-bottom: 3px solid rgb(207, 206, 212);
+}
+
+.listProject a:hover {
+  text-decoration: none;
+  color: black;
+}
+.listProject a {
+  color: black;
+}
+.listProject a p {
+  padding: 10px;
+  background-color: rgb(207, 208, 207);
+  transition: 300ms;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.listProject a p:hover {
+  padding: 10px;
+  background-color: gray;
+  background-color: rgb(98, 96, 96);
+  color: white;
 }
 
 /* Change styles for span and cancel button on extra small screens */

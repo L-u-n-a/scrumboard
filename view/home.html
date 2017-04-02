@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-ms-12 col-md-12 col-lg-12">
-    <div class="col-xs-4 col-ms-4 col-md-4 col-lg-4">
+    <div class="col-xs-0 col-ms-0 col-md-2 col-lg-2">
+    </div>
+    <div class="col-xs-12 col-ms-12 col-md-4 col-lg-4 newProject">
       <h4>Create new project</h4>
       <form ng-controller"homeController" ng-submit="saveNewProject()">
         <input type="text" name="name" ng-model="newProject.name" required />
@@ -8,12 +10,14 @@
         <button id="createProject" type="submit">Create</button>
       </form>
     </div>
-    <div class="col-xs-4 col-ms-4 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-ms-12 col-md-4 col-lg-4 activeProjects">
       <h4>Active Projects</h4>
-        <div ng-repeat="project in projects">
-          <p><a id="{{project.name}}" href="#scrumboard" ng-click="setProjectID(project.id)">{{project.name}}</a></p>
+        <div class="listProject" ng-repeat="project in projects">
+          <a id="{{project.name}}" href="#scrumboard" ng-click="setProjectID(project.id)"><p>{{project.name}}</p></a>
         </div>
 
+    </div>
+    <div class="col-xs-0 col-ms-0 col-md-2 col-lg-2">
     </div>
   </div>
 </div>
