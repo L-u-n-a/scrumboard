@@ -70,9 +70,7 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   // Every task is part of a sprint.
   $scope.saveNewSprint = function () {
     if (!isEmpty($scope.newSprint.name)) {
-      $scope.sprints.push(
-        $scope.newSprint.name
-      )
+      $scope.project.sprints.push($scope.newSprint.name)
 
       $scope.newSprint.name = null
     }

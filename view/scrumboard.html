@@ -8,7 +8,7 @@
 
        <input class="new-sprint" ng-model="newSprint.name" type="textfield" placeholder="New Sprint name"/>
        <img id="newSprintButton" ng-click="saveNewSprint()" src="images/ic_add_black_24dp_1x.png">
-       <label class="sprintLabel">Sprint: </label><select name="selected" class="select-sprint" ng-model="data.selected" ng-options="sprint for sprint in sprints"></select>
+       <label class="sprintLabel">Sprint: </label><select name="selected" class="select-sprint" ng-model="data.selected" ng-options="sprint for sprint in project.sprints"></select>
        <label class="participantLabel">Add participant: </label><select name="selected" class="select-sprint" ng-model="projectParticipant" ng-options="participant for participant in projectParticipants | userFilter: project"></select><img id="newColumnButton" class="newParticipant" ng-click="addProjectMember(projectParticipant)" src="images/ic_add_black_24dp_1x.png">
      </div>
 

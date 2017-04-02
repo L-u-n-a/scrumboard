@@ -1,7 +1,7 @@
 /* global app */
 app.factory('projectFactory', function () {
   var projects = [
-    {id: 1, name: 'testProject', participants: ['jan']}
+    {id: 1, name: 'testProject', participants: ['jan'], sprints: []}
   ]
 
   function getAllProjects () {
