@@ -3,9 +3,13 @@ body {
 }
 
 nav {
-  background-color: rgb(240, 120, 24);
+  background-color: #FF847C;
   font-family: 'Patrick Hand';
   height: 3.3em;
+}
+
+nav a:hover {
+  text-decoration: none;
 }
 
 nav h2 {
@@ -67,7 +71,7 @@ nav h2 {
 
 .column-name {
   padding: 0.5em;
-  background-color: rgb(252, 235, 182);
+  background-color: #FECEA8;
   color: black;
   margin: 0;
 }
@@ -112,7 +116,7 @@ nav h2 {
 }
 
 .newTask {
-    background-color: gray;
+    background-color: #99B898;
     border: none;
     color: white;
     padding: 5px 5px;
@@ -134,8 +138,9 @@ nav h2 {
 
 .itemList {
   min-height: 200px;
+  background-color: #2A363B;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 2px;
   border-top: none;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
