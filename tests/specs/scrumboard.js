@@ -1,53 +1,63 @@
 'use strict';
 
-// describe('Controller: scrumboardController', function () {
-//
-//   beforeEach(module('scrumboard-app'));
-//
-//   var scrumboardController,
-//     scope;
-//
-//   beforeEach(inject(function ($controller, $rootScope) {
-//     scope = $rootScope.$new();
-//     scrumboardController = $controller('scrumboardController', {
-//       $scope: scope
-//     })
-//   }))
 describe('Test the testing', function () {
-  var userFilter, columnFactory
+  var userFilter, columnFactory, userService
   beforeEach(function () {
     module('ngCookies')
     module('scrumboard-app')
-    inject(function ($filter, _columnFactory_) {
+    inject(function ($filter, _columnFactory_, _userService_) {
       userFilter = $filter('userFilter')
+      userService = _userService_
       columnFactory = _columnFactory_
     })
   })
+  it('check getAllColumns', function () {
+      var mockColumns = [
+        {id: 1, projectID: 1, name: 'ToDo', tasks: []}
+      ]
+      var columnArray = columnFactory.getAllColumns()
+      for (var i = 0; i < mockColumns.length; i++) {
+        expect(columnArray[i].name).toBe(mockColumns[i].name)
+      }
+  })
+  it('create a new column', function () {
+    columnFactory.createColumn(1, 'test')
+    var columns = columnFactory.getAllColumns()
+    expect(columns.length).toBe(2)
+
+  })
+  it('succesful login', function () {
+    expect(userService.login('jan', 'test')).toBeTruthy()
+  })
+  it('Should fail to login', function () {
+      expect(userService.login('jan', '1')).toBeFalsy()
+  })
+  it('Should get all users', function () {
+      var mockUsers = [
+          {username: 'jan', password: 'test'},
+          {username: 'gijs', password: 'gijs'},
+          {username: 'luna', password: 'luna'}
+      ]
+      var firstUser = userService.getAllUsers()
+      for (var i = 0; i < mockUsers.length; i++) {
+        expect(firstUser[i].username).toBe(mockUsers[i].username)
+      }
+  })
   it('Should create a new user', function () {
-    expect(columnFactory.getAllColumns()).toBe(columnFactory.getAllColumns())
+    userService.createUser('test', 'test')
+    expect(userService.getAllUsers().length).toBe(4)
+  })
+  it('Should get all the columns belonging to one project', function () {
+    columnFactory.createColumn(2, 'boer')
+    columnFactory.createColumn(3, 'vrouw')
+
+    expect(columnFactory.getColumnByProject(2)[0].name).toBe('boer')
+    expect(columnFactory.getColumnByProject(3)[0].name).toBe('vrouw')
+  })
+  it('Should get the usernames of all users', function () {
+    var names = ['jan', 'gijs', 'luna']
+      for (var i = 0; i < names.length; i++) {
+        expect(userService.getUserNames()[i]).toBe(names[i])
+      }
   })
 })
-
-//   /* global it */
-//   it('should check to see if a "#" is added to a title', function () {
-//     var input = 'test'
-//     var output = '#test'
-//
-//     /* global expect */
-//     console.log(scope.test)
-//     expect(scrumboardController.test).toBe('hello')
-//   })
-// })
-//
-// /* global describe */
-// describe('Test the testing', function () {
-//   /* global it */
-//   it('Should execute with succes', function () {
-//     /* global expect */
-//     expect(true).toBeTruthy()
-//   })
-//
-//   it('Should execute with failure', function () {
-//     expect(true).not.toBe(false)
-//   })
-// })
