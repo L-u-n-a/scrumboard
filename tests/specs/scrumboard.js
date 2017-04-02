@@ -20,14 +20,11 @@ describe('Test the testing', function () {
     module('scrumboard-app')
     inject(function ($filter, _columnFactory_) {
       userFilter = $filter('userFilter')
-      columnFactory = _columnFactory_;
+      columnFactory = _columnFactory_
     })
   })
   it('Should create a new user', function () {
     expect(columnFactory.getAllColumns()).toBe(columnFactory.getAllColumns())
-  })
-  it('shoud be true', function () {
-    expect(true).toBeTruthy()
   })
 })
 
