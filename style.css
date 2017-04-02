@@ -57,6 +57,10 @@ nav h2 {
   margin-left: 1em;
 }
 
+.header-margin {
+  margin-bottom: 1.2em;
+}
+
 .signup-button {
   background-color: #4CAF50;
   color: white;
