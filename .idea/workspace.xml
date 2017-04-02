@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57b10852-b3f8-4eee-99e1-45eee62aaadc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/karma.conf.js" afterPath="$PROJECT_DIR$/tests/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/specs/scrumboard.js" afterPath="$PROJECT_DIR$/tests/specs/scrumboard.js" />
-    </list>
+    <list default="true" id="57b10852-b3f8-4eee-99e1-45eee62aaadc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -239,12 +236,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1491130283312</updated>
-      <workItem from="1491130284592" duration="3329000" />
+      <workItem from="1491130284592" duration="3367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3329000" />
+    <option name="totallyTimeSpent" value="3367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
