@@ -35,7 +35,7 @@
                <div class="modal-body">
                  <input ng-model="newTask.ItemName" type="textfield" placeholder="Task Name" />
                  <textarea ng-model="newTask.ItemBody" rows="5" cols="50" placeholder="Task Description" /></textarea><br/>
-                 <label>Sprint:</label><select ng-model="newTask.ItemSprint" ng-options="sprint for sprint in sprints" class="new-item-sprint"></select>
+                 <label>Sprint:</label><select ng-model="newTask.ItemSprint" ng-options="sprint for sprint in project.sprints" class="new-item-sprint"></select>
                </div>
                <div class="modal-footer">
                  <!--Warning label, create and select sprint before creating column items!-->

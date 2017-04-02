@@ -5,6 +5,7 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   var projectID = $cookies.get('projectID')
   // Set data that is needed to make the filter for adding more project memebers work.
   $scope.project = projectFactory.getProjectById(projectID)
+  console.log($scope.project)
   $scope.projectParticipants = setParticipants($scope.project)
   // Retrieve the columns belonging to this project.
   $scope.columns = columnFactory.getColumnByProject(projectID)
@@ -70,6 +71,7 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   // Every task is part of a sprint.
   $scope.saveNewSprint = function () {
     if (!isEmpty($scope.newSprint.name)) {
+      console.log($scope.project)
       $scope.project.sprints.push($scope.newSprint.name)
 
       $scope.newSprint.name = null

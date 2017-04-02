@@ -31,7 +31,7 @@ app.factory('projectFactory', function () {
   }
 
   function createProject (pname, pParticipants) {
-    projects.push({id: projects.length + 1, name: pname, participants: pParticipants})
+    projects.push({id: projects.length + 1, name: pname, participants: pParticipants, sprints: []})
     /* global localStorage */
     localStorage.setItem('projects', JSON.stringify(projects))
     console.log(projects)
