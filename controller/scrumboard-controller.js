@@ -5,10 +5,10 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   var projectID = $cookies.get('projectID')
   // Set data that is needed to make the filter for adding more project memebers work.
   $scope.project = projectFactory.getProjectById(projectID)
-  console.log($scope.project)
   $scope.projectParticipants = setParticipants($scope.project)
   // Retrieve the columns belonging to this project.
   $scope.columns = columnFactory.getColumnByProject(projectID)
+  $scope.columns.tasks = setTasks()
   // This attribute is filled when not all input fields are filled in when creating a task.
   $scope.warning = ''
   $scope.sprints = []
@@ -40,6 +40,7 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   $scope.saveNewColumnItem = function (column) {
     if (!isEmpty($scope.newTask.ItemName) && !isEmpty($scope.newTask.ItemBody) && !isEmpty($scope.newTask.ItemSprint)) {
       taskFactory.createTask(column.id, $scope.newTask.ItemName, $scope.newTask.ItemBody, $scope.newTask.ItemSprint)
+
       column.tasks = taskFactory.getTaskByColumn(column.id)
       $scope.warning = ''
 
@@ -99,5 +100,12 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
       list.push(project.participants[i])
     }
     return list
+  }
+
+  /* This function loopt through every column and fills it with the tasks assigned to it. */
+  function setTasks () {
+    $scope.columns.forEach(function (e) {
+      e.tasks = taskFactory.getTaskByColumn(e.id)
+    })
   }
 })

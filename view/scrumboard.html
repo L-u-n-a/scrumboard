@@ -13,7 +13,7 @@
      </div>
 
      <!--The columns are displayed here-->
-     <div ng-repeat="column in columns">
+     <div ng-repeat="column in columns track by column.id">
        <div class="col-xs-12 col-ms-2 col-md-2 col-lg-2 column column" style="padding: 0;">
 
          <!-- Button trigger modal -->
@@ -49,7 +49,7 @@
 
          <!--Items in column-->
          <div class="itemList" ondrop="drop(event)" ondragover="allowDrop(event)">
-           <div ng-repeat="task in column.tasks | filter:data.selected" class="list-group">
+           <div ng-repeat="task in column.tasks | filter:data.selected track by task.id" class="list-group">
              <a class="list-group-item" draggable="true" ondragstart="drag(event)" id="{{task.name}}">
                <h4 class="list-group-item-heading">{{task.name}} <img class="deleteItem" ng-click="deleteItem(column, task)" src="images/ic_add_black_24dp_1x.png"></h4>
                <p class="list-group-item-text">{{task.body}}</p>

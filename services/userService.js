@@ -1,10 +1,14 @@
 /* global app */
 app.service('userService', function () {
-  var users = [
+  var users = JSON.parse(localStorage.getItem('users'))
+
+  if (users === null) {
+    users = [
       {username: 'jan', password: 'test'},
       {username: 'gijs', password: 'gijs'},
       {username: 'luna', password: 'luna'}
-  ]
+    ]
+  }
 
   this.login = function (username, password) {
     var login = false
@@ -18,6 +22,7 @@ app.service('userService', function () {
 
   this.createUser = function (name, pass) {
     users.push({username: name, password: pass})
+    localStorage.setItem('users', JSON.stringify(users))
   }
 
   this.getAllUsers = function () {

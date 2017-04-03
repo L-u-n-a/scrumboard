@@ -4,6 +4,8 @@ app.factory('columnFactory', function () {
     {id: 1, projectID: 1, name: 'ToDo', tasks: []}
   ]
 
+  columns = JSON.parse(localStorage.getItem('columns'))
+
   function getAllColumns () {
     return columns
   }
@@ -19,14 +21,20 @@ app.factory('columnFactory', function () {
   }
 
   function createColumn (projectId, columnName) {
-    columns.push({id: columns.length + 1, projectID: projectId, name: columnName})
+    columns.push({id: columns.length + 1, projectID: projectId, name: columnName, tasks: []})
     /* global localStorage */
     localStorage.setItem('columns', JSON.stringify(columns))
+  }
+
+  function saveColumns () {
+    localStorage.setItem('columns', JSON.stringify(columns))
+    columns = columns = JSON.parse(localStorage.getItem('columns'))
   }
 
   return {
     getAllColumns: getAllColumns,
     createColumn: createColumn,
-    getColumnByProject: getColumnByProject
+    getColumnByProject: getColumnByProject,
+    saveColumns: saveColumns
   }
 })

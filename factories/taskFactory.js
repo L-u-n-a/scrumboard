@@ -4,6 +4,8 @@ app.factory('taskFactory', function () {
     {id: 1, columnID: 1, name: 'Task name', body: 'Task description', sprint: 'sprint 1'}
   ]
 
+  tasks = JSON.parse(localStorage.getItem('tasks'))
+
   function getAllTasks () {
     return tasks
   }
@@ -13,7 +15,6 @@ app.factory('taskFactory', function () {
     tasks.forEach(function (e) {
       if (e.columnID === id) {
         taskList.push(e)
-        console.log(e)
       }
     })
     return taskList
@@ -21,7 +22,6 @@ app.factory('taskFactory', function () {
 
   function createTask (taskColumnID, taskName, taskBody, taskSprint) {
     tasks.push({id: tasks.length + 1, columnID: taskColumnID, name: taskName, body: taskBody, sprint: taskSprint})
-    console.log(tasks)
     /* global localStorage */
     localStorage.setItem('tasks', JSON.stringify(tasks))
   }
