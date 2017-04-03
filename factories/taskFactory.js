@@ -1,12 +1,10 @@
 /* global app */
 app.factory('taskFactory', function () {
-  var tasks = JSON.parse(localStorage.getItem('tasks'))
+  var tasks = [
+    {id: 1, columnID: 1, name: 'Task name', body: 'Task description', sprint: 'sprint 1'}
+  ]
 
-  if (tasks === null) {
-    tasks = [
-      {id: 1, columnID: 1, name: 'Task name', body: 'Task description', sprint: 'sprint 1'}
-    ]
-  }
+  tasks = JSON.parse(localStorage.getItem('tasks'))
 
   function getAllTasks () {
     return tasks
