@@ -4,6 +4,10 @@ app.factory('projectFactory', function () {
     {id: 1, name: 'testProject', participants: ['jan'], sprints: []}
   ]
 
+  console.log(projects)
+  projects = JSON.parse(localStorage.getItem('projects'))
+  console.log(projects)
+
   function getAllProjects () {
     return projects
   }
