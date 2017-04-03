@@ -6,6 +6,12 @@ app.factory('projectFactory', function () {
 
   projects = JSON.parse(localStorage.getItem('projects'))
 
+  if (projects === null) {
+    projects = [
+      {id: 1, name: 'testProject', participants: ['jan'], sprints: []}
+    ]
+  }
+
   function getAllProjects () {
     return projects
   }
