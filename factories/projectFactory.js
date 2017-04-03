@@ -1,10 +1,12 @@
 /* global app */
 app.factory('projectFactory', function () {
-  var projects = [
-    {id: 1, name: 'testProject', participants: ['jan'], sprints: []}
-  ]
+  var projects = JSON.parse(localStorage.getItem('projects'))
 
-  projects = JSON.parse(localStorage.getItem('projects'))
+  if (project === null) {
+    projects = [
+      {id: 1, name: 'testProject', participants: ['jan'], sprints: []}
+    ]
+  }
 
   function getAllProjects () {
     return projects

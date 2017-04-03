@@ -1,10 +1,12 @@
 /* global app */
 app.factory('columnFactory', function () {
-  var columns = [
-    {id: 1, projectID: 1, name: 'ToDo', tasks: []}
-  ]
+  var columns = JSON.parse(localStorage.getItem('columns'))
 
-  columns = JSON.parse(localStorage.getItem('columns'))
+  if (columns === null) {
+    columns = [
+      {id: 1, projectID: 1, name: 'ToDo', tasks: []}
+    ]
+  }
 
   function getAllColumns () {
     return columns
