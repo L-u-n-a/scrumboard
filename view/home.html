@@ -5,7 +5,7 @@
     <div class="col-xs-12 col-ms-12 col-md-4 col-lg-4 newProject">
       <h4>Create new project</h4>
       <form ng-controller"homeController" ng-submit="saveNewProject()">
-        <input type="text" name="name" ng-model="newProject.name" required />
+        <input type="text" placeholder="Project name" name="name" ng-model="newProject.name" required />
         <br />
         <button id="createProject" type="submit">Create</button>
       </form>

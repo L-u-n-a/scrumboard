@@ -71,6 +71,17 @@ nav h2 {
   width: 100%;
 }
 
+#createProject {
+  background-color: #99B898;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
 .new-column {
   margin: 0.5em;
   margin-top: 2em;
@@ -174,10 +185,6 @@ nav h2 {
 
 .list-item {
   background-color: white;
-}
-
-form {
-    border: 3px solid #f1f1f1;
 }
 
 input[type=text], input[type=password] {
