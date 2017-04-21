@@ -1,5 +1,9 @@
 function allowDrop (ev) {
   ev.preventDefault()
+
+  // This selects the ID of the div the item is beeing dropped into.
+  // The id of the div is the same as the ID of the list we want to put it in.
+  console.log(ev.target.id);
 }
 
 function drag (ev) {
