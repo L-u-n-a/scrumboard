@@ -8,6 +8,9 @@ function allowDrop (ev) {
 
 function drag (ev) {
   ev.dataTransfer.setData('text', ev.target.id)
+
+  // Dit is de ID van de task die we willen verplaatsen.
+  console.log(ev.target.id);
 }
 
 function drop (ev) {

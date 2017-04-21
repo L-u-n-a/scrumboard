@@ -89,6 +89,10 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
     return '#' + $scope.name
   }
 
+  function switchTaskColumn (id) {
+
+  }
+
   // This function will return true if a value is null or empty.
   function isEmpty (value) {
     return (value == null || value.length === 0)
