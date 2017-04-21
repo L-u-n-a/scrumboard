@@ -19,6 +19,7 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   $scope.newTask.ItenBody = ''
   $scope.newTask.ItemSprint = ''
   $scope.test = 'hello'
+  console.log(taskFactory.getAllTasks());
 
   /* The columnFactory is called in order to create a new column.
      After the column has been created, the $scope.clumns list is filled again,
@@ -79,6 +80,14 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
     }
   }
 
+  // This method is called in order to link a task to a different column after a drag and drop.
+  $scope.switchTaskColumn = function (taskName, columnID) {
+    var task = taskFactory.getTaskByName(taskName);
+    task.columnID = columnID;
+
+    localStorage.setItem('tasks', JSON.stringify(taskFactory.getAllTasks()));
+  }
+
   // Add a user to the project.
   $scope.addProjectMember = function (username) {
     $scope.project.participants.push(username)
@@ -87,10 +96,6 @@ angular.module('scrumboard-app').controller('scrumboardController', function ($s
   // This is where the #id necessary to open the model is created.
   $scope.setTitle = function () {
     return '#' + $scope.name
-  }
-
-  function switchTaskColumn (id) {
-
   }
 
   // This function will return true if a value is null or empty.

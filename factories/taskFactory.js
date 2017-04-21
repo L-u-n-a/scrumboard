@@ -26,6 +26,16 @@ app.factory('taskFactory', function () {
     return taskList
   }
 
+  function getTaskByName (name) {
+    var taskObject = {};
+    tasks.forEach(function (e) {
+      if(e.name == name) {
+        taskObject = e;
+      }
+    })
+    return taskObject;
+  }
+
   function createTask (taskColumnID, taskName, taskBody, taskSprint) {
     tasks.push({id: tasks.length + 1, columnID: taskColumnID, name: taskName, body: taskBody, sprint: taskSprint})
     /* global localStorage */
@@ -35,6 +45,7 @@ app.factory('taskFactory', function () {
   return {
     getAllTasks: getAllTasks,
     createTask: createTask,
-    getTaskByColumn: getTaskByColumn
+    getTaskByColumn: getTaskByColumn,
+    getTaskByName: getTaskByName
   }
 })
