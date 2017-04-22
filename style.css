@@ -83,10 +83,13 @@ nav h2 {
 }
 
 .new-column {
-  margin: 0.5em;
   margin-top: 2em;
   display: table;
   font-size: 1.1em;
+}
+
+.two-em-margin-top {
+  margin-top: 2em;
 }
 
 .new-column input {
