@@ -48,9 +48,9 @@
          </div>
 
          <!--Items in column-->
-         <div id="{{column.id}}" class="itemList list-group" ondrop="drop(event)" ondragover="allowDrop(event)">
+         <div id="{{column.id}}" class="itemList list-group" ondrop="drop(event, this)" ondragover="allowDrop(event)">
            <div ng-repeat="task in column.tasks | filter:data.selected track by task.id">
-             <a class="list-group-item" draggable="true" ondragstart="drag(event)" id="{{task.name}}">
+             <a class="list-group-item" draggable="true" ondragstart="drag(event)" ondrop="return false;" id="{{task.name}}">
                <h4 class="list-group-item-heading">{{task.name}} <img class="deleteItem" ng-click="deleteItem(column, task)" src="images/ic_add_black_24dp_1x.png"></h4>
                <p class="list-group-item-text">{{task.body}}</p>
              </a>
