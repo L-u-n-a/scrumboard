@@ -8,7 +8,7 @@ if($_REQUEST["name"]) {
   addProject($name);
 }
 else {
-  echo $name . ": Is the name empty?";
+  echo $name . " : If the name isn't displayed the value was empty.";
 }
 
 function addProject($name) {
